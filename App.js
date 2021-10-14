@@ -7,9 +7,9 @@ import Login from "./screens/Login";
 export default function App() {
   const MainNavigator = createStackNavigator();
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor:"#ffffff"}}>
       <NavigationContainer>
-        <MainNavigator.Navigator initialRouteName="Login">
+        <MainNavigator.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
           <MainNavigator.Screen name="Login" component={Login}/>
           
           
