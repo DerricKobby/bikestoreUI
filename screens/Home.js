@@ -15,8 +15,8 @@ function Item({name}){
     return(
         <TouchableOpacity
         style={{
-            height:30,
-            width: "auto",
+            
+            flexGrow:1,
             backgroundColor:"#f6f6f6",
             borderRadius:10,
             alignItems:'center',
@@ -34,13 +34,15 @@ function Item({name}){
 }
 
 const bikes =[
-    {id: "1", name: "Pinarello Bike", price: "1,700.00", avi:{require('../images/google.png')}},
-    {id: "2", name: "Brompton Bike", price: "1,500.00"},
-    {id: "3", name: "Schwinn Bike",  price: "1,200.00"},
-    {id: "4", name: "Norco Bike", price: "980.00"}
+    {id: "1", name: "Pinarello Bike", price: "1,700.00", uri:"../images/b1.png"},
+    {id: "2", name: "Brompton Bike", price: "1,500.00", uri:"../images/b2.png"},
+    {id: "3", name: "Schwinn Bike",  price: "1,200.00", uri:"../images/b3.png"},
+    {id: "4", name: "Norco Bike", price: "980.00", uri:"../imagesb4.png"},
+  
+
 ];
 
-function Bike({name, price}) {
+function Bike({item, name, price, uri}) {
     return(
         <View style={{
             backgroundColor:"#f6f6f6",
@@ -49,10 +51,12 @@ function Bike({name, price}) {
             width:150, 
             marginLeft:25,
             marginBottom:25,
+            justifyContent:"flex-end",
             alignItems:'center',
-            flex:'end'
+            paddingBottom:20
             
-           }}>  
+           }}>
+               
                <Text style={{color:"#9c9c9c", fontSize:12}}>{name}</Text>
                <Text style={{color:"#fa6401", fontSize:12,}}>$ <Text style={{fontSize:16, color:'black',fontWeight:"900"}}>{price}</Text></Text>
                
@@ -64,7 +68,7 @@ export default function Login() {
                 style={{
                     backgroundColor:"white",
                     flex:1,
-                    
+                    flexGrow:1
                     }}>
                     
                 <View style={{flexDirection:'row', paddingHorizontal:25, paddingTop:60, justifyContent:"space-between", alignItems:"center"}}> 
@@ -97,18 +101,23 @@ export default function Login() {
                     )}
                     horizontal
                 />
-
+            </View>
             <View style={{marginTop:20}}>
             <FlatList
+                
                     numColumns={2}
                     data={bikes}
+                    
                     renderItem={({item}) => (
-                    <Bike name={item.name} price={item.price}/>
+                    <Bike name={item.name} price={item.price} uri={item.uri}/>
+                    
                     )}
                     
                 />
             </View>
-            
+
+            <View style={{ flex:2, justifyItem:"center", height:50, width:"100%", backgroundColor:"#f6f6f6"}}>
+
             </View>
             
 
