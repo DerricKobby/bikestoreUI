@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
-export default function Login() {
+export default function Login({navigation}) {
     return (
     
     <View style={{flex:1, alignItems:'center', backgroundColor:"white"}}>
@@ -26,9 +26,12 @@ export default function Login() {
                <Text style={{color: "black", fontSize:30, fontWeight:"800"}}>Power Bike Shop</Text>
 
                <TouchableOpacity
+                    onPress={() =>{
+                        navigation.navigate("Home")
+                    }}
                     activeOpacity={0.4}
                     style={{
-                        backgroundColor:"#f2f2f2",
+                        backgroundColor:"#E9E8ED",
                         padding:20,
                         borderRadius:15,
                         paddingHorizontal:90,
@@ -48,6 +51,9 @@ export default function Login() {
                </TouchableOpacity>
 
                <TouchableOpacity
+                 onPress={() => {
+                        navigation.navigate("Home")
+                    }}
                     activeOpacity={0.7}
                     style={{
                         backgroundColor:"black",
